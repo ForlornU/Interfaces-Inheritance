@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public abstract class Gun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject bullet;
+    int magazineSize;
+    int rateOfFire;
+
+    public virtual void Shoot()
     {
-        
+        Instantiate(bullet, transform.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>().SetDirection(MousePos().normalized);
     }
 
-    // Update is called once per frame
-    void Update()
+    Vector2 MousePos()
     {
-        
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return mousePosition - new Vector2(transform.position.x, transform.position.y);
+    }
+
+    public virtual void Reload()
+    {
+
     }
 }

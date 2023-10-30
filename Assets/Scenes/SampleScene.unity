@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 277999186}
   - component: {fileID: 277999185}
   - component: {fileID: 277999187}
+  - component: {fileID: 277999188}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -443,6 +444,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0758711ff087e4a9c079a23bd788e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &277999188
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277999184}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: -0.09}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &381960306
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 381960308}
   - component: {fileID: 381960307}
+  - component: {fileID: 381960309}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -527,6 +564,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 228935532}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &381960309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381960306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46db492abd7c104e99f498d8fec9bd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5660565061345782364, guid: 2a4538ec25d2c934f9b9789ea434eb85, type: 3}
 --- !u!1 &421254674
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,9 +624,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2b9f5489dcfc24ab80e2ef7aa12fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistol: {fileID: 0}
-  machineGun: {fileID: 0}
-  shotgun: {fileID: 0}
+  pistol: {fileID: 381960309}
+  machineGun: {fileID: 1144142481}
+  shotgun: {fileID: 1930804480}
 --- !u!1 &529947405
 GameObject:
   m_ObjectHideFlags: 0
@@ -10457,7 +10507,7 @@ GameObject:
   - component: {fileID: 871919056}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10591,6 +10641,7 @@ GameObject:
   - component: {fileID: 938486377}
   - component: {fileID: 938486376}
   - component: {fileID: 938486378}
+  - component: {fileID: 938486379}
   m_Layer: 0
   m_Name: Gong
   m_TagString: Untagged
@@ -10677,6 +10728,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438624479bc7a3d4d8ea6c9401931294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &938486379
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938486375}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1144142478
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,6 +10773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144142480}
   - component: {fileID: 1144142479}
+  - component: {fileID: 1144142481}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -10761,6 +10848,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1410078173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144142481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144142478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48b4b91d5d2a234c9af4ca32e04dde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5660565061345782364, guid: 2a4538ec25d2c934f9b9789ea434eb85, type: 3}
 --- !u!1 &1176634610
 GameObject:
   m_ObjectHideFlags: 0
@@ -10772,6 +10872,7 @@ GameObject:
   - component: {fileID: 1176634612}
   - component: {fileID: 1176634611}
   - component: {fileID: 1176634613}
+  - component: {fileID: 1176634614}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -10859,6 +10960,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2fe85c3ebbe4949beed864a54baffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &1176634614
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176634610}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: -0.05}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1337294513
 GameObject:
   m_ObjectHideFlags: 0
@@ -12438,6 +12574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1930804479}
   - component: {fileID: 1930804478}
+  - component: {fileID: 1930804480}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -12512,6 +12649,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1983552800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1930804480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930804477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd71108b645a3a74bb4fecea7bd763ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 5660565061345782364, guid: 2a4538ec25d2c934f9b9789ea434eb85, type: 3}
 --- !u!1 &1972506112
 GameObject:
   m_ObjectHideFlags: 0

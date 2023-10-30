@@ -23,18 +23,18 @@ public class GunController : MonoBehaviour
     void SelectGun()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
-            Debug.Log("clicked 1");
+            currentGun = pistol;
         else if (Input.GetKeyDown(KeyCode.Alpha2))
-            Debug.Log("Clicled 2");
-        else if (!Input.GetKeyDown(KeyCode.Alpha3))
-            Debug.Log("");
+            currentGun = machineGun;
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+            currentGun = shotgun;
     }
 
     void TryToFire()
     {
-        if (!Input.GetMouseButton(0))
+        if (!Input.GetMouseButtonDown(0))
             return;
 
-
+        currentGun.Shoot();
     }
 }
