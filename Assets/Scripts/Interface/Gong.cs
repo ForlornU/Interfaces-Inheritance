@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-public class Gong : MonoBehaviour
+public class Gong : MonoBehaviour, iDamagable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioClip m_AudioClip;
+    AudioSource m_AudioSource;
+
+    private void Start()
     {
-        
+        m_AudioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage()
     {
-        
+        m_AudioSource.PlayOneShot(m_AudioClip);
     }
 }

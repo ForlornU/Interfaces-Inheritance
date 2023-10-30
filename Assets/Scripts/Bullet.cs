@@ -27,4 +27,16 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(5);
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        iDamagable receiver = collision.gameObject.GetComponent<iDamagable>();
+
+        if (receiver != null)
+        {
+            receiver.TakeDamage();
+            Destroy(gameObject);
+        }
+    }
 }

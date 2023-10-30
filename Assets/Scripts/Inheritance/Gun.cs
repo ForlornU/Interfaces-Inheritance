@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Gun : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
@@ -10,14 +11,22 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] protected int magazineSize;
     [SerializeField, Range(0.1f, 5f)] protected float rateOfFire = 1;
     [SerializeField] protected ParticleSystem particles;
+    [SerializeField] AudioClip shotSound;
+    AudioSource source;
 
     private float lastShotTime = 0;
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     public virtual void Shoot(Vector2 mousePosition)
     {
         if (!CanShoot())
             return;
 
+        source.PlayOneShot(shotSound);
         StartCoroutine(CreateBullet(mousePosition.normalized));
 
         lastShotTime = Time.time;
