@@ -1,23 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-
     [SerializeField] Gun pistol, machineGun, shotgun;
-
     private Gun currentGun;
+    LineRenderer lineRenderer;
 
     private void Start()
     {
         currentGun = pistol;
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     void LateUpdate()
     {
+        RotateGun();
         SelectGun();
         TryToFire();
+    }
+
+    void RotateGun()
+    {
+        lineRenderer.SetPosition(0, currentGun.transform.position);
+        lineRenderer.SetPosition(1, Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
     void SelectGun()
@@ -32,9 +37,15 @@ public class GunController : MonoBehaviour
 
     void TryToFire()
     {
-        if (!Input.GetMouseButtonDown(0))
+        if (!Input.GetMouseButton(0))
             return;
 
-        currentGun.Shoot();
+        currentGun.Shoot(DirectionToMousePos());
+    }
+
+    Vector2 DirectionToMousePos()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return mousePosition - new Vector2(currentGun.transform.position.x, currentGun.transform.position.y);
     }
 }

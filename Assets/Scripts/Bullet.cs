@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -9,6 +10,7 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(DestroyAfterSeconds());
     }
     void Update()
     {
@@ -18,5 +20,11 @@ public class Bullet : MonoBehaviour
     public void SetDirection(Vector2 dir)
     {
         direction = dir;
+    }
+
+    private IEnumerator DestroyAfterSeconds()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }

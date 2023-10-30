@@ -1,10 +1,11 @@
+
 using UnityEngine;
 
 public class Shotgun : Gun
 {
-    public override void Shoot()
+    public override void Shoot(Vector2 mousePosition)
     {
-        base.Shoot();
+        base.Shoot(mousePosition);
     }
 
 }
