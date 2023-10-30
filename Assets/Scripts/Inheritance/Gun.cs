@@ -6,7 +6,7 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] GameObject bullet;
 
     [SerializeField] protected int bulletsFired = 1;
-    [SerializeField, Range(0f, 10f)] float spread = 1;
+    [SerializeField, Range(0f, 10f)] protected float spread = 1;
     [SerializeField] protected int magazineSize;
     [SerializeField, Range(0.1f, 5f)] protected float rateOfFire = 1;
     [SerializeField] protected ParticleSystem particles;
@@ -33,19 +33,14 @@ public abstract class Gun : MonoBehaviour
 
     public virtual void Reload()
     {
-
+        //Add reload logic here
     }
 
     Vector2 Spread(Vector2 dir, float maxSpreadAngle)
     {
-        // Generate a random angle within the specified spread angle
         float spreadAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle);
-
-        // Rotate the direction vector by the random angle
         Quaternion rotation = Quaternion.Euler(0, 0, spreadAngle);
-        Vector2 spreadDir = rotation * dir;
-
-        return spreadDir;
+        return rotation * dir;
     }
 
     IEnumerator CreateBullet(Vector2 dir)
