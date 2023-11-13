@@ -14,6 +14,8 @@ The enemy has an AI and probably acts on its own, lots of scripts and different 
 
 Likewise the gong has NO other use than being shot, and it will only make a sound. To share an interface that only deals with being shot is most suitable for these classes
 
+Link to video about the differences between inheritance and abstract classes / inheritance
+https://youtu.be/oH2c27cvK0A
 -----------
 
 ## Getting Started
